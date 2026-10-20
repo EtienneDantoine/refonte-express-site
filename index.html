@@ -1,51 +1,175 @@
 <!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Refonte Express · Un site moderne pour votre entreprise en 72 h</title>
 <meta name="description" content="Refonte de site internet pour artisans et TPE : maquette offerte, mise en ligne en 72 h, 390 € tout compris avec un an d'hébergement.">
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="canonical" href="https://www.refonte-express.fr/">
+<meta name="theme-color" content="#1f6f5c">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:url" content="https://www.refonte-express.fr/">
+<meta property="og:title" content="Refonte Express · Votre nouveau site en ligne en 72 h">
+<meta property="og:description" content="Maquette offerte, 390 € tout compris, hébergement 1 an inclus. Pour artisans, commerçants et TPE.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231f6f5c'/%3E%3Cpath d='M18 5 9 18h6l-2 9 10-13h-6z' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--a:#1f6f5c;--ink:#16202a;--mut:#5b6773;--bg:#f6f7f8;--card:#fff}
-*{box-sizing:border-box}body{margin:0;font:17px/1.6 Manrope,system-ui,sans-serif;color:var(--ink);background:var(--bg)}
-.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
-header .wrap{display:flex;justify-content:space-between;align-items:center;padding-block:18px;font-weight:800;font-size:19px}
-header a{color:var(--a);font-size:15px;text-decoration:none;font-weight:700}
-.hero{padding:56px 0 64px}.hero h1{font-size:clamp(32px,5.5vw,54px);line-height:1.08;margin:0 0 18px;max-width:780px;text-wrap:balance}
-.hero p{font-size:20px;color:var(--mut);max-width:640px;margin:0 0 28px}
-.price{display:inline-flex;gap:14px;align-items:baseline;background:var(--card);border:1px solid #e3e6ea;border-radius:12px;padding:16px 22px}
-.price b{font-size:34px}.price span{color:var(--mut)}
-section{padding:52px 0}h2{font-size:28px;margin:0 0 22px}
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;counter-reset:s}
-.steps div{background:var(--card);border:1px solid #e3e6ea;border-radius:12px;padding:22px}
-.steps div::before{counter-increment:s;content:counter(s);display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--a);color:#fff;font-weight:800;margin-bottom:10px}
-.steps h3{margin:0 0 6px;font-size:18px}.steps p{margin:0;color:var(--mut)}
-ul.inc{columns:2;gap:32px;padding-left:20px}@media(max-width:640px){ul.inc{columns:1}}
-.faq details{background:var(--card);border:1px solid #e3e6ea;border-radius:10px;padding:14px 18px;margin-bottom:10px}
-.faq summary{font-weight:700;cursor:pointer}
-.contact{background:var(--ink);color:#fff;border-radius:16px;padding:32px}.contact a{color:#fff;font-weight:800;font-size:20px}
-footer{color:var(--mut);font-size:14px;padding:30px 0}footer a{color:var(--mut)}
+:root{--a:#1f6f5c;--a2:#174f42;--soft:#e7f2ee;--ink:#16202a;--mut:#5b6773;--line:#e3e6ea;--bg:#f6f7f8;--card:#fff;--warn:#b4532a}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;font:17px/1.6 Manrope,system-ui,sans-serif;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--a)}a:focus-visible,summary:focus-visible{outline:3px solid var(--a);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--a);color:#fff;text-decoration:none;font-weight:700;padding:14px 22px;border-radius:10px;transition:background .15s,transform .15s}
+.btn:hover{background:var(--a2);transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}.btn.ghost:hover{background:var(--card)}
+.btn.sm{padding:9px 16px;font-size:15px}
+/* header */
+header{position:sticky;top:0;z-index:10;background:rgba(246,247,248,.88);backdrop-filter:blur(10px);border-bottom:1px solid transparent}
+header.scrolled{border-bottom-color:var(--line)}
+header .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;height:64px}
+.logo{display:flex;white-space:nowrap;align-items:center;gap:10px;font-weight:800;font-size:19px;color:var(--ink);text-decoration:none}
+.logo i{display:grid;place-items:center;width:30px;height:30px;border-radius:8px;background:var(--a)}
+nav{display:flex;align-items:center;gap:26px}nav a:not(.btn){color:var(--mut);text-decoration:none;font-weight:600;font-size:15px}nav a:not(.btn):hover{color:var(--ink)}
+@media(max-width:760px){nav a:not(.btn){display:none}.btn.sm{white-space:nowrap;padding:8px 12px;font-size:14px}}
+/* hero */
+.hero{padding:64px 0 72px}.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+@media(max-width:880px){.hero .wrap{grid-template-columns:1fr}.mock{display:none}}
+.tag{display:inline-block;background:var(--soft);color:var(--a2);font-weight:700;font-size:14px;padding:6px 12px;border-radius:99px;margin-bottom:18px}
+.hero h1{font-size:clamp(34px,5.4vw,56px);line-height:1.06;letter-spacing:-.02em;margin:0 0 18px;text-wrap:balance}
+.hero h1 em{font-style:normal;color:var(--a)}
+.hero p.lead{font-size:20px;color:var(--mut);max-width:560px;margin:0 0 28px}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:28px}
+.trust{display:flex;flex-wrap:wrap;gap:8px 22px;padding:0;margin:0;list-style:none;color:var(--mut);font-size:15px;font-weight:600}
+.trust li::before{content:"✓";color:var(--a);font-weight:800;margin-right:7px}
+/* mockup illustration */
+.mock{position:relative;height:360px}
+.browser{position:absolute;inset:0 40px 30px 0;background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:0 24px 60px -24px rgba(22,32,42,.28);overflow:hidden}
+.bar{display:flex;gap:6px;padding:12px 14px;border-bottom:1px solid var(--line)}.bar span{width:10px;height:10px;border-radius:50%;background:#dfe3e7}
+.pg{padding:20px}.pg .h{height:14px;width:62%;background:var(--ink);border-radius:4px;margin-bottom:10px}
+.pg .l{height:8px;background:#e6e9ec;border-radius:4px;margin-bottom:8px}.pg .b{display:inline-block;height:26px;width:110px;background:var(--a);border-radius:6px;margin:8px 0 18px}
+.pg .g{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.pg .g div{height:74px;border-radius:8px;background:linear-gradient(135deg,var(--soft),#d4e8e0)}
+.phone{position:absolute;right:0;bottom:0;width:150px;height:270px;background:var(--ink);border-radius:24px;padding:8px;box-shadow:0 24px 50px -20px rgba(22,32,42,.45)}
+.phone .s{height:100%;background:var(--card);border-radius:17px;padding:22px 12px;overflow:hidden}
+.phone .h{height:10px;width:80%;background:var(--ink);border-radius:3px;margin-bottom:8px}.phone .l{height:6px;background:#e6e9ec;border-radius:3px;margin-bottom:6px}
+.phone .call{margin-top:14px;height:30px;border-radius:8px;background:var(--a);color:#fff;font-size:11px;font-weight:800;display:grid;place-items:center}
+.phone .im{margin-top:12px;height:70px;border-radius:8px;background:linear-gradient(135deg,var(--soft),#d4e8e0)}
+/* sections */
+section{padding:72px 0}.alt{background:var(--card);border-block:1px solid var(--line)}
+.eyebrow{color:var(--a);font-weight:800;font-size:14px;letter-spacing:.06em;text-transform:uppercase;margin:0 0 8px}
+h2{font-size:clamp(26px,3.4vw,34px);line-height:1.15;letter-spacing:-.01em;margin:0 0 14px;text-wrap:balance}
+.sub{color:var(--mut);max-width:640px;margin:0 0 36px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px}
+.alt .card{background:var(--bg)}
+.card h3{margin:0 0 6px;font-size:18px}.card p{margin:0;color:var(--mut)}
+.ico{display:grid;place-items:center;width:42px;height:42px;border-radius:10px;background:#fbeee8;color:var(--warn);font-size:20px;margin-bottom:14px}
+.steps{counter-reset:s}.steps .card::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--a);color:#fff;font-weight:800;margin-bottom:14px}
+/* pricing */
+.pricing{display:grid;grid-template-columns:.85fr 1.15fr;gap:0;background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 20px 50px -30px rgba(22,32,42,.3)}
+@media(max-width:800px){.pricing{grid-template-columns:1fr}}
+.pricing .l{background:var(--ink);color:#fff;padding:36px}
+.pricing .l .amt{font-size:64px;font-weight:800;line-height:1;margin:14px 0 6px;letter-spacing:-.02em}
+.pricing .l p{color:#b8c2cc;margin:0 0 26px;font-size:15px}
+.pricing .l .btn{width:100%;justify-content:center}
+.pricing .r{padding:36px}
+ul.inc{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:12px 28px}
+@media(max-width:560px){ul.inc{grid-template-columns:1fr}}
+ul.inc li{position:relative;padding-left:30px}
+ul.inc li::before{content:"✓";position:absolute;left:0;top:2px;width:20px;height:20px;border-radius:50%;background:var(--soft);color:var(--a);font-size:12px;font-weight:800;display:grid;place-items:center}
+.note{margin:22px 0 0;padding-top:18px;border-top:1px solid var(--line);color:var(--mut);font-size:15px}
+/* faq */
+.faq{max-width:780px}
+.faq details{background:var(--card);border:1px solid var(--line);border-radius:12px;margin-bottom:10px}
+.faq summary{font-weight:700;cursor:pointer;padding:16px 50px 16px 20px;list-style:none;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:22px;color:var(--a);transition:transform .2s}
+.faq details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+.faq details p{margin:0;padding:0 20px 18px;color:var(--mut)}
+/* contact */
+.contact{background:var(--a);color:#fff;border-radius:20px;padding:48px;display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center}
+@media(max-width:800px){.contact{grid-template-columns:1fr;padding:32px}}
+.contact h2{color:#fff}.contact p{color:#d6ebe4;margin:0}
+.contact .box{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:14px;padding:22px}
+.contact .box .btn{background:#fff;color:var(--a2);width:100%;justify-content:center;margin-bottom:12px}.contact .box .btn:hover{background:var(--soft)}
+.contact .box a.mail{color:#fff;font-weight:700;word-break:break-all}
+footer{color:var(--mut);font-size:14px;padding:32px 0 40px}footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}footer a{color:var(--mut)}
 </style></head><body>
-<header><div class="wrap"><span>Refonte Express</span><a href="#contact">Nous écrire</a></div></header>
+<header id="top"><div class="wrap">
+<a class="logo" href="#top"><i><svg width="16" height="16" viewBox="0 0 32 32" aria-hidden="true"><path d="M18 3 7 19h7l-2 10 12-16h-7z" fill="#fff"/></svg></i>Refonte Express</a>
+<nav aria-label="Navigation principale"><a href="#methode">Méthode</a><a href="#tarif">Tarif</a><a href="#faq">Questions</a><a class="btn sm" href="#contact">Ma maquette offerte</a></nav>
+</div></header>
+
+<main>
 <div class="hero"><div class="wrap">
-<h1>Un site moderne pour votre entreprise, en ligne en 72 heures</h1>
-<p>Nous refaisons le site des artisans, commerçants et petites entreprises : lisible sur téléphone, sécurisé, rapide, et pensé pour que vos clients vous appellent.</p>
-<div class="price"><b>390 €</b><span>tout compris · hébergement inclus 1 an · TVA non applicable</span></div>
+<div>
+<span class="tag">Maquette offerte · sans engagement</span>
+<h1>Un site moderne pour votre entreprise, <em>en ligne en 72 heures</em></h1>
+<p class="lead">Nous refaisons le site des artisans, commerçants et petites entreprises : lisible sur téléphone, sécurisé, rapide, et pensé pour que vos clients vous appellent.</p>
+<div class="ctas"><a class="btn" href="#contact">Recevoir ma maquette gratuite →</a><a class="btn ghost" href="#tarif">390 € tout compris</a></div>
+<ul class="trust"><li>Vous payez après validation</li><li>Votre nom de domaine conservé</li><li>Aucun abonnement</li></ul>
+</div>
+<div class="mock" aria-hidden="true">
+<div class="browser"><div class="bar"><span></span><span></span><span></span></div><div class="pg"><div class="h"></div><div class="l" style="width:88%"></div><div class="l" style="width:70%"></div><span class="b"></span><div class="g"><div></div><div></div><div></div></div></div></div>
+<div class="phone"><div class="s"><div class="h"></div><div class="l"></div><div class="l" style="width:75%"></div><div class="call">📞 Appeler</div><div class="im"></div></div></div>
+</div>
 </div></div>
-<section style="background:var(--card)"><div class="wrap"><h2>Comment ça se passe</h2><div class="steps">
-<div><h3>Votre maquette offerte</h3><p>Nous préparons une maquette de votre nouveau site avec vos propres contenus. Vous la regardez sans engagement.</p></div>
-<div><h3>Vous validez</h3><p>Vous demandez les ajustements souhaités. Vous ne payez qu'une fois la maquette validée, par virement sur facture.</p></div>
-<div><h3>Mise en ligne en 72 h</h3><p>Nous mettons le site en ligne sur votre nom de domaine actuel. Vos coordonnées et votre référencement sont conservés.</p></div>
-</div></div></section>
-<section><div class="wrap"><h2>Ce qui est inclus</h2><ul class="inc">
+
+<section class="alt"><div class="wrap">
+<p class="eyebrow">Le constat</p>
+<h2>Un site vieillissant fait fuir vos futurs clients</h2>
+<p class="sub">La majorité de vos visiteurs arrivent depuis leur téléphone. S'ils ne trouvent pas votre numéro en quelques secondes, ils appellent le concurrent.</p>
+<div class="grid3">
+<div class="card"><div class="ico">📱</div><h3>Illisible sur téléphone</h3><p>Texte minuscule, menus qui débordent, boutons impossibles à toucher.</p></div>
+<div class="card"><div class="ico">⚠️</div><h3>« Site non sécurisé »</h3><p>Sans HTTPS, le navigateur affiche un avertissement qui inquiète vos visiteurs.</p></div>
+<div class="card"><div class="ico">🐢</div><h3>Lent et daté</h3><p>Un site lent ou démodé donne une mauvaise image de votre travail, même s'il est excellent.</p></div>
+</div>
+</div></section>
+
+<section id="methode"><div class="wrap">
+<p class="eyebrow">Méthode</p>
+<h2>Comment ça se passe</h2>
+<p class="sub">Simple, rapide, et sans risque : vous voyez le résultat avant de payer quoi que ce soit.</p>
+<div class="grid3 steps">
+<div class="card"><h3>Votre maquette offerte</h3><p>Nous préparons une maquette de votre nouveau site avec vos propres contenus. Vous la regardez sans engagement.</p></div>
+<div class="card"><h3>Vous validez</h3><p>Vous demandez les ajustements souhaités. Vous ne payez qu'une fois la maquette validée, par virement sur facture.</p></div>
+<div class="card"><h3>Mise en ligne en 72 h</h3><p>Nous mettons le site en ligne sur votre nom de domaine actuel. Vos coordonnées et votre référencement sont conservés.</p></div>
+</div>
+</div></section>
+
+<section id="tarif" class="alt"><div class="wrap">
+<p class="eyebrow">Tarif</p>
+<h2>Un prix unique, tout compris</h2>
+<p class="sub">Pas de devis à rallonge ni de frais cachés.</p>
+<div class="pricing">
+<div class="l"><strong>Offre Refonte</strong><div class="amt">390 €</div><p>Paiement unique · TVA non applicable<br>Hébergement inclus pendant 1 an</p><a class="btn" href="#contact">Demander ma maquette</a></div>
+<div class="r"><ul class="inc">
 <li>Site adapté au téléphone, à la tablette et à l'ordinateur</li><li>Connexion sécurisée (HTTPS)</li>
 <li>Boutons d'appel et de contact visibles</li><li>Reprise de vos textes, prestations et coordonnées</li>
 <li>Bases du référencement Google (titres, descriptions)</li><li>Hébergement pendant 12 mois</li>
 <li>Une série de modifications après la mise en ligne</li><li>Aucun abonnement imposé</li>
-</ul></div></section>
-<section class="faq"><div class="wrap"><h2>Questions fréquentes</h2>
+</ul>
+<p class="note">Après paiement, vous êtes propriétaire des fichiers de votre site et pouvez les récupérer à tout moment.</p></div>
+</div>
+</div></section>
+
+<section id="faq"><div class="wrap faq">
+<p class="eyebrow">Questions fréquentes</p>
+<h2>Vous vous demandez peut-être…</h2>
 <details><summary>Dois-je payer pour voir la maquette ?</summary><p>Non. La maquette est offerte et ne vous engage à rien.</p></details>
+<details><summary>Que dois-je fournir ?</summary><p>L'adresse de votre site actuel suffit pour démarrer : nous reprenons vos textes, photos et coordonnées. Vous pouvez nous envoyer de nouvelles photos ou corrections si vous le souhaitez.</p></details>
 <details><summary>Je garde mon nom de domaine ?</summary><p>Oui. Le nouveau site remplace l'ancien à la même adresse.</p></details>
+<details><summary>Quand dois-je payer ?</summary><p>Uniquement après avoir validé la maquette, par virement sur facture à 7 jours. La mise en ligne a lieu sous 72 heures ouvrées après le paiement et la réception des accès à votre nom de domaine.</p></details>
+<details><summary>Puis-je demander des modifications ?</summary><p>Oui, autant que nécessaire avant validation de la maquette, puis une série de modifications après la mise en ligne.</p></details>
 <details><summary>Et après la première année ?</summary><p>L'hébergement peut être prolongé ; le tarif vous est communiqué à l'avance et vous êtes libre de partir avec votre site.</p></details>
 </div></section>
-<section id="contact"><div class="wrap"><div class="contact"><h2 style="margin-top:0">Une question ?</h2>
-<p>Écrivez-nous, nous répondons sous 24 h ouvrées :</p><p><a href="mailto:contact@refonte-express.fr">contact@refonte-express.fr</a></p></div></div></section>
-<footer><div class="wrap">Refonte Express · Emilien Maudret EI · <a href="/mentions-legales.html">Mentions légales et conditions de vente</a></div></footer>
+
+<section id="contact" style="padding-top:24px"><div class="wrap"><div class="contact">
+<div><h2>Recevez votre maquette gratuite</h2><p>Envoyez-nous simplement le nom de votre entreprise et l'adresse de votre site actuel. Nous répondons sous 24 h ouvrées.</p></div>
+<div class="box"><a class="btn" href="mailto:contact@refonte-express.fr?subject=Demande%20de%20maquette%20offerte&amp;body=Bonjour%2C%0A%0ANom%20de%20l'entreprise%20%3A%20%0AAdresse%20du%20site%20actuel%20%3A%20%0AT%C3%A9l%C3%A9phone%20%3A%20%0A%0AMerci%20!">Écrire un email →</a>
+<a class="mail" href="mailto:contact@refonte-express.fr">contact@refonte-express.fr</a></div>
+</div></div></section>
+</main>
+
+<footer><div class="wrap"><span>© 2026 Refonte Express</span><a href="/mentions-legales.html">Mentions légales et conditions de vente</a></div></footer>
+<script>
+(function(){var h=document.querySelector('header');function f(){h.classList.toggle('scrolled',window.scrollY>8)}addEventListener('scroll',f,{passive:true});f()})();
+</script>
 </body></html>
