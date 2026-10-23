@@ -85,6 +85,7 @@ document.getElementById('bkgo').onclick=function(){var m=document.getElementById
 <a class="callfab" href="tel:0365670815" aria-label="Appeler">📞</a>
 <div class="salesbar"><div class="wrap"><div><b>Ce site vous plaît ?</b> <span>Site vitrine en ligne en 72 h pour 390 €, boutique en ligne sur devis.</span></div>
 <a class="btn light" href="mailto:contact@refonte-express.fr?subject=Je%20veux%20mon%20site%20-%20Akpinar%20Carrelage%20%26%20Rev%C3%AAtement%20Sol%20Souple">Je veux ce site</a></div></div>
+<script>if(location.hash){history.replaceState(null,'',location.pathname+location.search);addEventListener('load',function(){scrollTo(0,0)});scrollTo(0,0)}</script>
 <script>document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();
 var b='Nom : '+n.value+'%0ATéléphone : '+t.value+'%0A%0A'+encodeURIComponent(m.value);
 location.href='mailto:contact@akpinar.fr?subject=Demande%20de%20devis&body='+b;});</script>
